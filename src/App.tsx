@@ -15,7 +15,7 @@ const StyledProjectsHeading = styled.div`
   width: 100%;
   text-align: left;
   margin-bottom: 3rem;
-  font-weight: bold
+  font-weight: bold;
 `
 
 const StyledProjects = styled.div`
@@ -87,7 +87,7 @@ const App =  () => {
     <div className="App">
       <header className="App-header">
         <StyledHeaderLink to="/">
-          <img height="100px" src='/eco-warriors-logo.png'></img>
+          <img alt="eco warriors logo" height="100px" src='/eco-warriors-logo.png'></img>
           <h1>Eco Warriors Hub</h1>
           </StyledHeaderLink>
         <StyledNav>

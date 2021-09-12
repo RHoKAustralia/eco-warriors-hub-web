@@ -1,14 +1,14 @@
 import styled from 'styled-components'
+import Card from '@material-ui/core/Card';
 
-const StyledProject = styled.div`
+const StyledProject = styled(Card)`
 
   max-width: 100%;
   display: flex;
   margin: 1rem;
   width: 80rem;
   height: 18rem;
-  border: 2px solid gray;
-  border-radius: 1rem;
+  background-color: red;
 `
 
 const StyledInfo = styled.div`
@@ -47,7 +47,7 @@ const Project = (props: {name: string, summary: string, link: string, img: strin
 
   return (
     <StyledLink href={props.link}>
-      <StyledProject>
+      <StyledProject style={{backgroundColor: 'AliceBlue'}}>
         <StyledInfo>
           <StyledTitle>{props.name}</StyledTitle>
           <StyledSummary>{props.summary}</StyledSummary>

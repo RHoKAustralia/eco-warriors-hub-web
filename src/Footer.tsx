@@ -13,7 +13,7 @@ const FooterContainer = styled.div`
 const Footer = () => {
   return (
     <FooterContainer>
-      <img height="40px" src='/eco-warriors-logo.png'></img>
+      <img alt="eco warriors logo" height="40px" src='/eco-warriors-logo.png'></img>
 
       © Eco Warriors Hub
     </FooterContainer>

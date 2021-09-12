@@ -51,7 +51,7 @@ const AboutUs = () => {
       </LeftContainer>
 
       <RightContainer>
-        <img height='800px' src='./about-us.jpg'></img>
+        <img alt="about us" height='800px' src='./about-us.jpg'></img>
 
       </RightContainer>
     
