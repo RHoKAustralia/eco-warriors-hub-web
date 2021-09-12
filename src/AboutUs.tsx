@@ -2,17 +2,26 @@ import styled from 'styled-components'
 
 const LeftContainer = styled.div`
   flex: 2;
-  padding-right: 2rem;
-
-
+ 
+  @media only screen and (min-width: 700px){
+    padding-right: 2rem;
+    padding-left: 1rem;
+  }
+  padding-right: 0rem;
 `
 
 const RightContainer = styled.div`
   flex: 1.5;
+  overflow: hidden;
+  width: 300px;
 `
 
 const ContentContainer = styled.div`
   display: flex;
+  flex-direction: column;
+  @media only screen and (min-width: 700px){
+    flex-direction: row;
+  }
   align-items: center;
 `
 
@@ -30,6 +39,15 @@ const Heading = styled.h2`
 const SmallText = styled.p`
   font-size: 1.25rem;
   margin-bottom: 1rem;
+`
+
+const AboutUsImage = styled.img`
+  height: 300px;
+ 
+  @media only screen and (min-width: 700px){
+    height: 800px;
+  }
+
 `
 
 const AboutUs = () => {
@@ -51,7 +69,7 @@ const AboutUs = () => {
       </LeftContainer>
 
       <RightContainer>
-        <img alt="about us" height='800px' src='./about-us.jpg'></img>
+        <AboutUsImage alt="about us" src='./about-us.jpg'></AboutUsImage>
 
       </RightContainer>
     

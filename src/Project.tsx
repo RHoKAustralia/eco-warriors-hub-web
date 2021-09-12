@@ -5,10 +5,20 @@ const StyledProject = styled(Card)`
 
   max-width: 100%;
   display: flex;
+  flex-direction: column;
+  @media only screen and (min-width: 700px){
+    flex-direction: row;
+    height: 18rem;
+    width: 80rem;
+  }
   margin: 1rem;
-  width: 80rem;
-  height: 18rem;
+  width: 20rem;
+
   background-color: red;
+  @media only screen and (min-width: 700px){
+    padding-right: 2rem;
+    padding-left: 1rem;
+  }
 `
 
 const StyledInfo = styled.div`
@@ -35,10 +45,14 @@ const StyledTitle = styled.div`
 `
 
 const StyledImage = styled.img`
-width: 100%;
+width: 70%;
+display: none;
+@media only screen and (min-width: 700px){
+  width: 100%;
+  display: block;
+}
 
 `
-
 const StyledLink = styled.a`
   text-decoration: none;
 `
