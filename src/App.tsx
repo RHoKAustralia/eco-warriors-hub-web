@@ -7,6 +7,7 @@ import Project from "./Project"
 import styled from 'styled-components'
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom/' 
 import AboutUs from './AboutUs'
+import NotFound from './NotFound'
 
 const StyledProjectsHeading = styled.div`
   font-size: 2rem;
@@ -107,6 +108,9 @@ const App =  () => {
           </Route>
           <Route path="/about-us">
             <AboutUs></AboutUs>
+          </Route>
+          <Route>
+            <NotFound></NotFound>
           </Route>
         </Switch>
 
