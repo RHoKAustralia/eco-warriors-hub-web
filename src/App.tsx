@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import { ref, StorageReference, getDownloadURL } from 'firebase/storage'
 import Project from "./Project"
 import styled from 'styled-components'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom/' 
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom/' 
 import AboutUs from './AboutUs'
 
 const StyledProjectsHeading = styled.div`
@@ -26,12 +26,12 @@ const StyledNav = styled.div`
   display: flex;
 `
 
-const StyledLink = styled.a`
+const StyledLink = styled(Link)`
   margin-right: 1rem;
   color: white;
 `
 
-const StyledHeaderLink = styled.a`
+const StyledHeaderLink = styled(Link)`
   text-decoration: none;
   color: white;
 `
@@ -78,19 +78,22 @@ const App =  () => {
   const [count, setCount] = useState<ProjectType[]>([]);
 
   return (
+    <Router>
     <div className="App">
       <header className="App-header">
-        <StyledHeaderLink href="/"><h1>Eco Warriors Hub</h1></StyledHeaderLink>
+        <StyledHeaderLink to="/"><h1>Eco Warriors Hub</h1></StyledHeaderLink>
         <StyledNav>
 
-          <StyledLink href="/">Projects</StyledLink>
-          <StyledLink href="about-us">About us</StyledLink>
+          <StyledLink to="/">Projects</StyledLink>
+          <StyledLink to="/about-us">About us</StyledLink>
+
         </StyledNav>
       </header>
       <body className="Body">
 
-      <Router>
+
   
+
         <Switch>
           <Route exact path="/">
             <StyledProjectsHeading>Current projects</StyledProjectsHeading>
@@ -106,11 +109,11 @@ const App =  () => {
             <AboutUs></AboutUs>
           </Route>
         </Switch>
-    </Router>
 
         
       </body>
     </div>
+    </Router>
   );
 }
 
