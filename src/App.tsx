@@ -8,12 +8,14 @@ import styled from 'styled-components'
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom/' 
 import AboutUs from './AboutUs'
 import NotFound from './NotFound'
+import Footer from './Footer'
 
 const StyledProjectsHeading = styled.div`
-  font-size: 2rem;
+  font-size: 3rem;
   width: 100%;
   text-align: left;
   margin-bottom: 3rem;
+  font-weight: bold
 `
 
 const StyledProjects = styled.div`
@@ -33,6 +35,8 @@ const StyledLink = styled(Link)`
 `
 
 const StyledHeaderLink = styled(Link)`
+  display: flex;
+  align-items: center;
   text-decoration: none;
   color: white;
 `
@@ -82,10 +86,13 @@ const App =  () => {
     <Router>
     <div className="App">
       <header className="App-header">
-        <StyledHeaderLink to="/"><h1>Eco Warriors Hub</h1></StyledHeaderLink>
+        <StyledHeaderLink to="/">
+          <img height="100px" src='/eco-warriors-logo.png'></img>
+          <h1>Eco Warriors Hub</h1>
+          </StyledHeaderLink>
         <StyledNav>
 
-          <StyledLink to="/">Projects</StyledLink>
+          <StyledLink to="/projects">Projects</StyledLink>
           <StyledLink to="/about-us">About us</StyledLink>
 
         </StyledNav>
@@ -93,10 +100,14 @@ const App =  () => {
       <body className="Body">
 
 
-  
-
         <Switch>
           <Route exact path="/">
+            <AboutUs></AboutUs>
+          </Route>
+          <Route path="/about-us">
+            <AboutUs></AboutUs>
+          </Route>
+          <Route path="/projects">
             <StyledProjectsHeading>Current projects</StyledProjectsHeading>
             <StyledProjects>
               {count.map(project => {
@@ -106,9 +117,7 @@ const App =  () => {
               })}
             </StyledProjects>
           </Route>
-          <Route path="/about-us">
-            <AboutUs></AboutUs>
-          </Route>
+         
           <Route>
             <NotFound></NotFound>
           </Route>
@@ -116,6 +125,7 @@ const App =  () => {
 
         
       </body>
+      <Footer></Footer>
     </div>
     </Router>
   );
