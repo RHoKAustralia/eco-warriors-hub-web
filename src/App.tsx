@@ -31,6 +31,11 @@ const StyledLink = styled.a`
   color: white;
 `
 
+const StyledHeaderLink = styled.a`
+  text-decoration: none;
+  color: white;
+`
+
 type ProjectType = {
   title: string
   summary: string
@@ -75,7 +80,7 @@ const App =  () => {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Eco Warriors Hub</h1>
+        <StyledHeaderLink href="/"><h1>Eco Warriors Hub</h1></StyledHeaderLink>
         <StyledNav>
 
           <StyledLink href="/">Projects</StyledLink>
