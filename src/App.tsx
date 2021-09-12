@@ -1,11 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
 import { db, storage } from './firebase'
 import { collection, getDocs } from 'firebase/firestore/lite';
 import { useState, useEffect } from 'react';
-import { ref, StorageReference, listAll, getDownloadURL } from 'firebase/storage'
+import { ref, StorageReference, getDownloadURL } from 'firebase/storage'
+import Project from "./Project"
+import styled from 'styled-components'
 
-type Project = {
+
+const StyledProjectsHeading = styled.div`
+  font-size: 2rem;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 3rem;
+`
+
+const StyledProjects = styled.div`
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
+type ProjectType = {
   title: string
   summary: string
   link: string
@@ -18,7 +34,7 @@ const App =  () => {
     const getProjects = async () => {
       const projectsCol = collection(db, 'projects');
       const projectsSnapshot = await getDocs(projectsCol);
-      const projectsList = projectsSnapshot.docs.map(doc => doc.data()) as Project[]
+      const projectsList = projectsSnapshot.docs.map(doc => doc.data()) as ProjectType[]
 
       let imgUrls: string[] = []
 
@@ -44,37 +60,23 @@ const App =  () => {
     getProjects()
   }, []);
 
-  const [count, setCount] = useState<Project[]>([]);
+  const [count, setCount] = useState<ProjectType[]>([]);
 
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <h1>Eco Warriors Hub</h1>
-        {count.map(a => {
-          return (
-            <div>
-              {a.title}
-              <p>{a.summary}</p>
-              <a className="App-link" href={a.link}>{a.link}</a>
-              <div>
-                <img src={a.img ?? ''}/>
-              </div>
-            </div>
-          )
-        })}
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
+      <body className="Body">
+        <StyledProjectsHeading>Current projects</StyledProjectsHeading>
+        <StyledProjects>
+          {count.map(project => {
+            return (
+              <Project name={project.title} summary={project.summary} link={project.link} img={project.img ?? ''}></Project>
+            )
+          })}
+        </StyledProjects>
+      </body>
     </div>
   );
 }
