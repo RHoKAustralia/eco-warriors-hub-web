@@ -6,6 +6,7 @@ import { ref, StorageReference, getDownloadURL } from 'firebase/storage'
 import Project from "./Project"
 import styled from 'styled-components'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom/' 
+import AboutUs from './AboutUs'
 
 const StyledProjectsHeading = styled.div`
   font-size: 2rem;
@@ -78,7 +79,7 @@ const App =  () => {
         <StyledNav>
 
           <StyledLink href="/">Projects</StyledLink>
-          <StyledLink href="/about-us">About us</StyledLink>
+          <StyledLink href="about-us">About us</StyledLink>
         </StyledNav>
       </header>
       <body className="Body">
@@ -97,7 +98,7 @@ const App =  () => {
             </StyledProjects>
           </Route>
           <Route path="/about-us">
-            <div>about us</div>
+            <AboutUs></AboutUs>
           </Route>
         </Switch>
     </Router>
